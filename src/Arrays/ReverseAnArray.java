@@ -12,6 +12,7 @@ public class ReverseAnArray {
 
             start++;
             end--;
+
         }
 
         return arr;
