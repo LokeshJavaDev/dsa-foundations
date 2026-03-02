@@ -28,7 +28,6 @@ public class TwoSumOptimal {
         int target = 9;
 
         int[] result = twoSum(arr, target);
-
         System.out.println(result[0] + " " + result[1]);
     }
 }
