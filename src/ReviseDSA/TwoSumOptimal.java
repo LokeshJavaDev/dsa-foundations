@@ -1,33 +1,27 @@
 package ReviseDSA;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class TwoSumOptimal {
+    public static int[] twoSum(int[] nums, int target) {
+        HashMap<Integer,Integer> map = new HashMap<>();
 
-    public static int[] twoSum(int[] arr, int target) {
+        for(int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
 
-        HashMap<Integer, Integer> map = new HashMap<>();
-
-        for (int i = 0; i < arr.length; i++) {
-
-            int complement = target - arr[i];
-
-            if (map.containsKey(complement)) {
+            if(map.containsKey(complement)) {
                 return new int[]{map.get(complement), i};
             }
-
-            map.put(arr[i], i);
+            map.put(nums[i], i);
         }
-
-        return new int[]{-1, -1};
+        return new int[]{};
     }
 
+
     public static void main(String[] args) {
-
-        int[] arr = {2, 7, 11, 15};
+        int[] nums = {2, 7, 11, 15};
         int target = 9;
-
-        int[] result = twoSum(arr, target);
-        System.out.println(result[0] + " " + result[1]);
+        System.out.println(Arrays.toString(twoSum(nums, target)));
     }
 }
