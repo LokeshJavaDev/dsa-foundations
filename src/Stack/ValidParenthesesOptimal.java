@@ -11,21 +11,25 @@ public class ValidParenthesesOptimal {
 
             if (ch == '(' || ch == '{' || ch == '[') {
                 stack.push(ch);
-            }
-            else {
-                if (stack.isEmpty()) return false;
-
-                char top = stack.pop();
-
-                if ((ch == ')' && top != '(') ||
-                        (ch == '}' && top != '{') ||
-                        (ch == ']' && top != '[')) {
+            } else {
+                if (stack.isEmpty()) {
                     return false;
+                } else {
+                    if ((stack.peek() == '(' && ch == ')')
+                            || (stack.peek() == '{' && ch == '}')
+                            || (stack.peek() == '[' && ch == ']')) {
+                        stack.pop();
+                    } else {
+                        return false;
+                    }
                 }
             }
         }
-
-        return stack.isEmpty();
+        if (stack.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public static void main(String[] args) {
